@@ -7,7 +7,7 @@ public class Ramses extends EntityOcelot {
 
 	public Ramses(World par1World) {
 		super(par1World);
-		// TODO Auto-generated constructor stub
+		this.setTamed(true);
 	}
 
 }
