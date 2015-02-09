@@ -1,0 +1,12 @@
+.project
+.settings
+.gradle
+.classpath
+eclipse
+gradle*
+forge*
+Mine*
+bin
+README*
+CREDITS*
+LICENSE*
