@@ -36,7 +36,11 @@ public class RamsesMod {
 
 
 	Block customBlock;
-	private RamsesArmorItem ramsesHelmet;
+	public static RamsesArmorItem ramsesHelmet;
+	public static RamsesArmorItem ramsesChestplate;
+	public static RamsesArmorItem ramsesLeggings;
+	public static RamsesArmorItem ramsesBoots;
+
 	ArmorMaterial ramsesArmor = EnumHelper.addArmorMaterial("ramsesarmor", 20, 
 			new int[] { 5,  5, 5, 5 }, 10);
 
@@ -68,8 +72,15 @@ public class RamsesMod {
     private void loadArmor() {
 		
     	ramsesHelmet = new RamsesArmorItem(ramsesArmor, 0, "RamsesHelmet");
+    	ramsesChestplate = new RamsesArmorItem(ramsesArmor, 1, "RamsesChestplate");
+    	ramsesLeggings = new RamsesArmorItem(ramsesArmor, 2, "RamsesLeggings");
+    	ramsesBoots = new RamsesArmorItem(ramsesArmor, 3, "RamsesBoots");
+
         GameRegistry.registerItem(ramsesHelmet, "RamsesHelmet");
-		
+        GameRegistry.registerItem(ramsesChestplate, "RamsesChestplate");
+        GameRegistry.registerItem(ramsesLeggings, "RamsesLeggings");
+        GameRegistry.registerItem(ramsesBoots, "RamsesBoots");
+
 	}
 
 	private void loadObjects() {
