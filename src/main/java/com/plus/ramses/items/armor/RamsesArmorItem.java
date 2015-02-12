@@ -12,7 +12,7 @@ public class RamsesArmorItem extends ItemArmor {
 			String name) {
 		super(material, 0, armorType);
         setUnlocalizedName(RamsesMod.MODID + "_" + name);
-        setTextureName(RamsesMod.MODID + "_" + name);
+        setTextureName(RamsesMod.MODID + ":" + name);
 	
 	}
 	
@@ -27,13 +27,10 @@ public class RamsesArmorItem extends ItemArmor {
 		} else if (stack.getItem() == RamsesMod.ramsesLeggings) {
 			return RamsesMod.MODID + ":models/armor/ramsesarmor2.png";
 
-		}
-
-		else {
+		} else {
 			System.out.println("Invalid Item");
 			return null;
 		}
 	}
-
 
 }
