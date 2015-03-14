@@ -1,6 +1,12 @@
 package com.plus.ramses.entity;
 
 
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.EnumHelper;
+
 import com.plus.ramses.entity.pets.Ramses;
 import com.plus.ramses.items.armor.RamsesArmorItem;
 import com.plus.ramses.proxy.CommonProxy;
@@ -13,15 +19,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.IEntityOwnable;
-import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.passive.EntityOcelot;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.world.World;
-import net.minecraftforge.common.util.EnumHelper;
 
 
 
@@ -64,12 +61,14 @@ public class RamsesMod {
 
     	loadObjects();
     	loadArmor();
+    	loadRecipes();
     	proxy.registerRenderers();
     	proxy.registerModEntities();
     	
     }
-    
-    private void loadArmor() {
+
+
+	private void loadArmor() {
 		
     	ramsesHelmet = new RamsesArmorItem(ramsesArmor, 0, "RamsesHelmet");
     	ramsesChestplate = new RamsesArmorItem(ramsesArmor, 1, "RamsesChestplate");
@@ -82,6 +81,30 @@ public class RamsesMod {
         GameRegistry.registerItem(ramsesBoots, "RamsesBoots");
 
 	}
+	
+    
+	private void loadRecipes() {
+		// Create recipes for the Ramses Armor
+		GameRegistry.addRecipe(new ItemStack(RamsesMod.ramsesHelmet),
+				"XXX",
+				"X X",
+				"   ", 'X', Blocks.lapis_ore);
+
+		GameRegistry.addRecipe(new ItemStack(RamsesMod.ramsesChestplate),
+				"X X",
+				"XXX",
+				"XXX", 'X', Blocks.lapis_ore);
+
+		GameRegistry.addRecipe(new ItemStack(RamsesMod.ramsesLeggings),
+				"XXX",
+				"X X",
+				"X X", 'X', Blocks.lapis_ore);
+
+		GameRegistry.addRecipe(new ItemStack(RamsesMod.ramsesBoots),
+				"   ",
+				"X X",
+				"X X", 'X', Blocks.lapis_ore);
+	}
 
 	private void loadObjects() {
 
@@ -92,23 +115,5 @@ public class RamsesMod {
     public void postInit(FMLPostInitializationEvent event) {
             // Stub Method
     }
-
-//	@Override
-//	public String getOwnerName() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public Entity getOwner() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public EntityAgeable createChild(EntityAgeable var1) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 
 }
